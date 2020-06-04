@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>probability on Obryan Poyser</title>
+    <link>/tags/probability/</link>
+    <description>Recent content in probability on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/probability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Example of frequentist perspective of probability</title>
+      <link>/post/example-of-frequentist-perspective-of-probability/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/example-of-frequentist-perspective-of-probability/</guid>
+      <description>This function tries to visualize the frequentist perspective of probability by flipping an equilibrated π(θ)=0.5 coin.
+Frequentist approach establish that the true probability of an event θ is given by:
+\[ \pi(\theta_i)=\lim_{\theta_i\to\infty} \frac{n_{\theta\_i}}{n_{trials,i}} \]
+# obs is the number of times a coin is flipped # coins are the number of indepedent coins tossed at the same time f.coin=function(flips, coins){ plot(x = 0 , ylab = &amp;quot;Probability&amp;quot; , xlab = &amp;quot;Times&amp;quot; , main = paste(&amp;quot;Flipping&amp;quot;, coins, &amp;quot;indepedent coins&amp;quot;, flips, &amp;quot;times&amp;quot;) , type = &amp;quot;n&amp;quot;, ylim = c(0, 1), xlim = c(0, flips)) abline(h = .</description>
+    </item>
+    
+  </channel>
+</rss>

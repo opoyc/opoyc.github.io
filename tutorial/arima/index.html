@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.1.0">
+  <meta name="generator" content="Hugo 0.72.0" />
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Obryan Poyser Calderón">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Background Time series studies observations that are recorded sequentially over time. The consideration of the time domain is a special characteristic that demands the application of specific statistical approaches. Among the main consideration we have to consider there it is the “memory” of the observations, which means that current values are serially dependent of previous values, thus it violates the \(i.i.d.\)1 assumption. Second, it is possible to separate a signal2 into components which represent specific features of the data Box et al.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/tutorial/arima/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#004c68">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-97643146-2', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Obryan Poyser">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Obryan Poyser">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/tutorial/arima/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@opoyc">
+  <meta property="twitter:creator" content="@opoyc">
+  
+  <meta property="og:site_name" content="Obryan Poyser">
+  <meta property="og:url" content="/tutorial/arima/">
+  <meta property="og:title" content="Autoregressive Integrated Moving Average | Obryan Poyser">
+  <meta property="og:description" content="Background Time series studies observations that are recorded sequentially over time. The consideration of the time domain is a special characteristic that demands the application of specific statistical approaches. Among the main consideration we have to consider there it is the “memory” of the observations, which means that current values are serially dependent of previous values, thus it violates the \(i.i.d.\)1 assumption. Second, it is possible to separate a signal2 into components which represent specific features of the data Box et al."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-09-09T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-09-09T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Autoregressive Integrated Moving Average | Obryan Poyser</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/"><img src="/img/icon-192.png" alt="Obryan Poyser"></a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/research/">
+            
+            <span>Research</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">
+            
+            <span>Tutorials</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://rebrand.ly/cv_opoyc" target="_blank" rel="noopener">
+            
+            <span>CV</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" id="search-query" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/">Overview</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/intro_r_language/">R-programming</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/tutorial/intro_r_language/">Introduction to R language</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/data_wrangling/">Data wrangling, control structures and loops (1)</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/data_wrangling2/">Data wrangling, control structures and loops (2)</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/reprod_res_web_scrap/">Reproducible research &amp; Web scraping</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/sent_analysis_data_vis/">Data visualization &amp; sentiment analysis</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/unsupervised/">Unsupervised learning</a>
+      </li>
+      
+      <li >
+        <a href="/tutorial/supervised/">Supervised learning</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/tutorial/arima/">Time Series Analysis</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/tutorial/arima/">ARIMA</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article" itemscope itemtype="http://schema.org/Article">
+
+        <div class="docs-article-container">
+          <h1 itemprop="name">Autoregressive Integrated Moving Average</h1>
+
+          <div class="article-style" itemprop="articleBody">
+            
+
+
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>Time series studies observations that are recorded sequentially over time. The consideration of the <em>time</em> domain is a special characteristic that demands the application of specific statistical approaches. Among the main consideration we have to consider there it is the “memory” of the observations, which means that current values are serially dependent of previous values, thus it violates the <span class="math inline">\(i.i.d.\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> assumption. Second, it is possible to separate a signal<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> into components which represent specific features of the data <span class="citation">Box et al. (2015)</span> see also <span class="citation">Cowpertwait and Metcalfe (2009)</span>.</p>
+<div id="autoregressive-model" class="section level2">
+<h2>Autoregressive model</h2>
+<p>Autoregressive means that actual observations <span class="math inline">\(x_t\)</span> are determined by previous observations, hence, <span class="math inline">\(x_t=f(x_{t-1}, x_{t-2},... ,x_{t-p})\)</span>. For instance, if someone uses an hygrometer to measure the level of humidity after a rainstorm twice a day in Costa Rica, one can expect that levels in the afternoon are highly correlated with taken measures in the morning, so does with previous days measures, but with less intensity. The formal representation can be described by:</p>
+<p>An autoregressive (AR) process or order <em>p</em> has the form:</p>
+<p><span class="math display">\[\begin{equation}
+x_t=\phi_1 x_{t-1} + \phi_2 x_{t-2} \:+ \dots\:+\:\phi_p x_{t-p}+e_t
+\end{equation}\]</span></p>
+<p><span class="math inline">\(x_t\)</span> is stationary (this means that the underlying probabilities that govern a process do not change over time), whereas <span class="math inline">\(\phi_1, \phi_2,\dots,\phi_p\)</span> are constants that determine the magnitude of the relationship between the current value previous. Finally, <span class="math inline">\(e_t\)</span> represent the innovations, that is to say, it captures everything that is not explained by the regressors, assumed to be normally distributed.</p>
+<p>For the sake of illustration, we can simulate how an AR(p) process looks like.</p>
+<div id="ar1-phi0.8" class="section level3">
+<h3>AR(1) | <span class="math inline">\(\phi=0.8\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=0.8x_{t-1}+e_t\)</span></p>
+<p>In this example, current values are highly and positively determined by previous ones.</p>
+<pre class="r"><code>require(astsa)
+require(ggplot2)
+require(dplyr)
+
+arima.sim(model = list(order = c(1, 0, 0), ar = c(.9)), n = 100) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ar1-phi-0.8" class="section level3">
+<h3>AR(1) | <span class="math inline">\(\phi=-0.8\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=-0.8x_{t-1}+e_t\)</span></p>
+<p>In this case, current values are highly and negatively determined by previous ones. Hence, it is expected to show a “switch” in the signs, for instance, <span class="math inline">\(x_t\)</span> it is going to be positive if <span class="math inline">\(x{t-1}\)</span> is negative and so on.</p>
+<pre class="r"><code>arima.sim(model = list(order = c(1, 0, 0), ar = c(-.8)), n = 100) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ar1-phi0.2" class="section level3">
+<h3>AR(1) | <span class="math inline">\(\phi=0.2\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=0.2x_{t-1}+e_t\)</span></p>
+<p>In this example, current values are barely and positively determined by previous ones.</p>
+<pre class="r"><code>arima.sim(model = list(order = c(1, 0, 0), ar = c(.2)), n = 100) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ar2-phi_1-phi_20.9--0.5" class="section level3">
+<h3>AR(2) | <span class="math inline">\(\phi_{1}, \phi_{2}=(0.9, -0.5)\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=0.9x_{t-1}-0.5x_{t-2}+e_t\)</span></p>
+<p>This example shows a more complex behavior. Current values are expected to be positively related to one step behind but negatively contaminated with two steps behind.</p>
+<pre class="r"><code>arima.sim(model = list(order = c(2, 0, 0), ar = c(.9, -.5)), n = 200) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="moving-average-model" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Moving average model</h2>
+<p>The other component of ARIMA is the moving average (MA) which assumes that <span class="math inline">\(x_t\)</span> is determined by a linear combination of the innovations “e_t”. In this representation each previous set of errors have a different weight. The formal representation can be described by:</p>
+<p>An autoregressive (AR) process or order <em>p</em> has the form:</p>
+<p><span class="math display">\[
+x_t=e_t+\theta_1 e_{t-1}+\theta_2 e_{t-2}+\dots+\theta_q e_{t-q}
+\]</span>
+As it was previously stated, <span class="math inline">\(x_t\)</span> is stationary, <span class="math inline">\(q\)</span> is the amount of lags, <span class="math inline">\(\theta_1, \theta_2,\dots,\theta_q\)</span> are parameters different from zero.</p>
+<p>For the sake of illustration, we can simulate how an AR(p) process looks like.</p>
+<div id="ma1-theta0.9" class="section level3">
+<h3>MA(1) | <span class="math inline">\(\theta=0.9\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=e_t+0.9e_{t-1}\)</span></p>
+<pre class="r"><code>arima.sim(model = list(order = c(0, 0, 1), ma = c(.9)), n = 100) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ma1-theta-0.9" class="section level3">
+<h3>MA(1) | <span class="math inline">\(\theta=-0.9\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=e_t-0.9e_{t-1}\)</span></p>
+<pre class="r"><code>arima.sim(model = list(order = c(0, 0, 1), ma = c(-.9)), n = 100) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ma2-theta_1-theta_2-0.4-0.5" class="section level3">
+<h3>MA(2) | <span class="math inline">\(\theta_{1}, \theta_{2}=(-0.4, 0.5)\)</span></h3>
+<p>Form: <span class="math inline">\(x_t=e_t-0.4e_{t-1}+0.5e_{t-2}\)</span></p>
+<pre class="r"><code>arima.sim(model = list(order = c(0, 0, 2), ma = c(-.4, .5)), n = 200) %&gt;%
+    as.data.frame() %&gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&quot;observations&quot;, y=&quot;simulated values&quot;)</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="integrated-autoregressive-moving-average-arima" class="section level2">
+<h2>Integrated Autoregressive Moving Average (ARIMA)</h2>
+<p>Autoregressive and moving average models or ARIMA(p,d,q) can be combined in order improve the estimates of a model, as expected , this models are simply named ARMA models. It is assumed that a time series is partly AR and partly MA, then it can be described as:</p>
+<p><span class="math display">\[
+x_t=\phi_1 x_{t-1} + \phi_2 x_{t-2} \:+ \dots\:+\:\phi_p x_{t-p}+e_t+\theta_1 e_{t-1}+\theta_2 e_{t-2}+\dots+\theta_q e_{t-q}
+\]</span></p>
+<p>Until now, it has been assumed that <span class="math inline">\(x_t\)</span> are stationary, however, this assumption is not satisfied in most of the real-world problems, hence, we frequently face non-stationary time series. Non-stationary means that the average of the observed values is not constant over time. One common procedure to “make” <span class="math inline">\(x_t\)</span> stationary is via differentiating. For instance, an AR model gave by:</p>
+<p><span class="math display">\[
+\begin{align*}
+x_t &amp;= x_{t-1}+e_t \\
+x_t-x_{t-1} &amp;= e_t \\
+\triangledown x_t &amp;=e_t
+\end{align*}
+\]</span>
+As <span class="citation">Shumway and Stoffer (2010)</span> mentions, there are few steps to follow in order to construct an ARIMA model to time series data, these steps are:</p>
+<ol style="list-style-type: decimal">
+<li>Plot data</li>
+<li>Transforming data</li>
+<li>Identify dependence orders</li>
+<li>Parameter estimation</li>
+<li>Diagnostic</li>
+<li>Model choice</li>
+</ol>
+<p>In this applied case we are going to apply Autoregressive Integrated Moving Average Models (ARIMA) to forecast the number of foreign arrivals in Costa Rica by any via.</p>
+</div>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>In this study we consider the analysis of monthly tourist’s arrivals from January 2005 to April 2017, thus we are dealing with <span class="math inline">\(n=148\)</span> observations. The information is provided by the statistics department of the <a href="www.ict.go.cr">Costarrican Institute of Tourism</a>. The data is recorded in a pdf file, in which the tables show the amount of tourist that arrive in Costa Rica recorded by country. Since we deal with many countries, and each series describes an idiosyncratic trend and seasonal components, it has been decided to limit the analysis to the United States tourist.</p>
+<pre><code>## # A tibble: 740 x 15
+##    year  country region january february march april   may  june  july
+##    &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 05    otros_… africa     100       90    99   106    95    70    91
+##  2 05    belice  ameri…      74       36    48    35    53    68    93
+##  3 05    el_sal… ameri…    3915     2605  4017  3151  3381  3208  4143
+##  4 05    guatem… ameri…    3041     2514  3094  2851  3088  4261  3085
+##  5 05    hondur… ameri…    3004     1637  2191  2267  1804  2295  2497
+##  6 05    nicara… ameri…   41208    17106 19461 15912 15630 16634 18832
+##  7 05    panama  ameri…    8098     6472  5660  4243  5154  5126  6029
+##  8 05    canada  ameri…   14740    14261 13224  7184  3973  3017  4192
+##  9 14    china   asia       452      550   811   629   631   582   610
+## 10 05    mexico  ameri…    3155     3772  4939  3365  3769  3976  6973
+## # … with 730 more rows, and 5 more variables: august &lt;dbl&gt;,
+## #   september &lt;dbl&gt;, october &lt;dbl&gt;, november &lt;dbl&gt;, december &lt;dbl&gt;</code></pre>
+<div id="data-filtering-and-transformation" class="section level2">
+<h2>Data filtering and transformation</h2>
+<p>It is precise to filter the observations of United States, then restructure the data in order to have a “long” dataframe since as it can notice the original dataset is “wide”, with one column per month, and another to describe the year.</p>
+<pre class="r"><code>require(tidyverse)
+
+# Support function to format months
+
+m.f=function(x){
+    s1=toupper(substr(x,1,1))
+    s2=paste0(s1,substr(x,2,3))
+    return(s2)
+}
+
+tou_usa=data %&gt;%
+    filter(grepl(&quot;estados&quot;, country)) %&gt;%
+    select(-region, -country) %&gt;% # We don&#39;t need this info anymore
+    gather(key = month, value = arrivals, -year) %&gt;% # This function converts data from wide to long
+    mutate(date=paste0(year, m.f(month), &quot;28&quot;) %&gt;% # Create a unique variable that describes date.
+               lubridate::ymd()) %&gt;%               # 28 is an indicator of the last day of the month
+    select(date, arrivals) %&gt;%
+    arrange(date) %&gt;%
+    na.omit()
+
+tou_usa_xts=xts::xts(x = tou_usa$arrivals, order.by = tou_usa$date) # Sometimes is useful to deal
+                                                                   # with xts formats
+tou_usa_ts=ts(data = tou_usa$arrivals, start = c(2005, 1), frequency = 12)     # and ts</code></pre>
+<pre class="r"><code>tou_usa</code></pre>
+<pre><code>## # A tibble: 148 x 2
+##    date       arrivals
+##    &lt;date&gt;        &lt;dbl&gt;
+##  1 2005-01-28    66095
+##  2 2005-02-28    71945
+##  3 2005-03-28    90193
+##  4 2005-04-28    63650
+##  5 2005-05-28    60659
+##  6 2005-06-28    75428
+##  7 2005-07-28    80576
+##  8 2005-08-28    57000
+##  9 2005-09-28    34519
+## 10 2005-10-28    38096
+## # … with 138 more rows</code></pre>
+<div id="plotting-the-data" class="section level3">
+<h3>Plotting the data</h3>
+<pre class="r"><code>tou_usa %&gt;%
+    mutate(log_arrivals=log(arrivals)) %&gt;%
+    gather(key = variable, value = value, -date) %&gt;%
+    ggplot(aes(x = date, y = value)) +
+        geom_line() +
+        facet_wrap(~variable, scales = &quot;free&quot;, dir = &quot;v&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-11-1.png" alt="North American tourists' arrivals to Costa Rica 2005-2017" width="672" />
+<p class="caption">
+Figure 1: North American tourists’ arrivals to Costa Rica 2005-2017
+</p>
+</div>
+<p>From the graph above we can highlight two important things, first, the trend is definitely not linear, second, there are multiple seasonal components across the time series. According to ARIMA method is necessary to get rid of such components in order to make the series stationary, although, there are other methods such as <strong>State Space models</strong> that permit to study each of the components and bring insights about each one. This method is going to be covered in another applied case.</p>
+<div id="seasonal-component" class="section level4">
+<h4>Seasonal component</h4>
+<pre class="r"><code>forecast::ggseasonplot(x = tou_usa_ts, year.labels = T, main=&quot;&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-12-1.png" alt="Seasonal component of USA tourists' arrivals to Costa Rica 2005-2017" width="672" />
+<p class="caption">
+Figure 2: Seasonal component of USA tourists’ arrivals to Costa Rica 2005-2017
+</p>
+</div>
+<p>As it can be noticed above, the flow of USA tourists commonly peaks on March, June, July and December.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
+<p>When we study time series Autocorrelation and Partial Autocorrelation functions (ACF &amp; PACF) graphs are extremely useful to visualize dependence orders.</p>
+<div id="dependence-orders" class="section level2">
+<h2>Dependence orders</h2>
+<div id="autocorrelation-function" class="section level3">
+<h3>Autocorrelation function</h3>
+<p>In order to identify MA in a time series ACF is more useful than PACF. Let’s take a look to the graph below:</p>
+<pre class="r"><code>require(forecast)
+
+forecast::ggAcf(x = tou_usa$arrivals, main=&quot;&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-13-1.png" alt="Autocorrelation function for tourist arrivals" width="672" />
+<p class="caption">
+Figure 3: Autocorrelation function for tourist arrivals
+</p>
+</div>
+<p>The way the ACF decays suggest a MA of order 1 or in other notation an ARIMA(0,1,1), which is decaying up to lag 7. Similarly, a seasonal MA is also expected to be a good approximation. In this case, we are dealing with Seasonal ARIMA’s or SARIMA. SARIMA models are conventionally expressed as <span class="math inline">\(ARIMA(p,d,q)(P,D,Q)_m\)</span></p>
+</div>
+<div id="partial-autocorrelation-function" class="section level3">
+<h3>Partial Autocorrelation function</h3>
+<p>Similarly, identification of AR is easier on a PACF graph. That is: <em>“the number of non-zero partial autocorrelations gives the order of the AR model”</em></p>
+<pre class="r"><code>forecast::ggAcf(x = tou_usa$arrivals
+                , main=&quot;&quot;
+                , type = &quot;partial&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-14-1.png" alt="Partial Autocorrelation function for tourist arrivals" width="672" />
+<p class="caption">
+Figure 4: Partial Autocorrelation function for tourist arrivals
+</p>
+</div>
+<p>There are two key things to consider here, first, the pattern of the ACF seems to be an AR(1) since it can notice a cutoff in the first lag (a positive autocorrelation of 0.82). Hence, it is expected that a good model can be obtained after applying one differentiation or ARIMA(1,1,0). Second, in lag 11, 12, 13 and 14 there is a great autocorrelation, this is a typical pattern for seasonal time series, hence, a seasonal differentiation can be another good model specification.</p>
+<p>Several models have to be compared based on error indicators. In the next section, we are going to deal with this problem.</p>
+</div>
+</div>
+<div id="parameters-estimation" class="section level2">
+<h2>Parameters’ estimation</h2>
+<p>In this section, we estimate several models in order to compare the results, notice that some of them take in count seasonal differentiation such as <code>arima011.110, arima011.011 and, arima110.011</code>.</p>
+<pre class="r"><code>require(forecast)
+
+arima011=Arima(y = tou_usa_ts, order = c(0, 1, 1))
+arima021=Arima(y = tou_usa_ts, order = c(0, 2, 1))
+arima022=Arima(y = tou_usa_ts, order = c(0, 2, 2))
+arima111=Arima(y = tou_usa_ts, order = c(1, 1, 1))
+arima121=Arima(y = tou_usa_ts, order = c(1, 2, 1))
+arima112=Arima(y = tou_usa_ts, order = c(1, 1, 2))
+arima011.110=Arima(y = tou_usa_ts, order = c(0, 1, 1), seasonal=list(order= c(1, 1, 0), period=12.5))
+arima011.011=Arima(y = tou_usa_ts, order = c(0, 1, 1), seasonal=list(order= c(0, 1, 1), period=12.5))
+arima110.011=Arima(y = tou_usa_ts, order = c(1, 1, 0), seasonal=list(order= c(0, 1, 1), period=12.5))</code></pre>
+<p>For the sake of facilitating the estimation of measures is important to locate all models into a list</p>
+<pre class="r"><code># Take the Arima type of models from the environment
+list_models=mget(x = ls(pattern = &quot;^arima&quot;)) %&gt;% # This function keeps all the objects in the list
+    purrr::keep(.p = forecast::is.Arima)     # in which is.Arima is TRUE</code></pre>
+<div id="coefficient-estimates" class="section level3">
+<h3>Coefficient estimates</h3>
+<pre class="r"><code>arima_models_coeff=purrr::map(list_models, .f = function(x){
+        coefficients(x) #%&gt;%
+      #as.data.frame()
+    }) %&gt;%
+    purrr::discard(is.null) %&gt;%
+    plyr::ldply(., rbind) %&gt;%
+    mutate(model=names(list_models)) %&gt;%
+    select(model, ar1, ma1, ma2, sma1, sar1) %&gt;%
+    arrange(model)
+
+arima_models_coeff</code></pre>
+<pre><code>##          model         ar1         ma1        ma2       sma1       sar1
+## 1     arima011          NA  0.80280589         NA         NA         NA
+## 2 arima011.011          NA -0.14037398         NA -0.3595258         NA
+## 3 arima011.110          NA -0.16606249         NA         NA -0.4114242
+## 4     arima021          NA -0.99999904         NA         NA         NA
+## 5     arima022          NA -0.19405197 -0.8059476         NA         NA
+## 6 arima110.011 -0.09099471          NA         NA -0.3579534         NA
+## 7     arima111 -0.40079008  0.91407208         NA         NA         NA
+## 8     arima112  0.19739701 -0.05862288 -0.8441638         NA         NA
+## 9     arima121  0.13956669 -0.99999715         NA         NA         NA</code></pre>
+</div>
+<div id="model-choose" class="section level3">
+<h3>Model choose</h3>
+<p>The process of choosing the best model is effortful, for instance, here I estimate 9 different specifications, in which there is one with the finest accuracy (minimum error). However, this process can be time-consuming, since we can continue to specify the orders and compare many times and there is a high chance that we miss a better one. Here the function <code>auto.arima</code> of the <code>forecast</code> package provides an algorithm that automates this procedure by comparing multiple models, and give as a proposed one with the lowest Akaike Information Criterion (AIC).</p>
+<pre class="r"><code>best_arima=forecast::auto.arima(y = tou_usa_ts)
+
+best_arima</code></pre>
+<pre><code>## Series: tou_usa_ts 
+## ARIMA(1,1,1)(1,1,0)[12] 
+## 
+## Coefficients:
+##          ar1      ma1     sar1
+##       0.7602  -0.9635  -0.4161
+## s.e.  0.0712   0.0299   0.0878
+## 
+## sigma^2 estimated as 15420614:  log likelihood=-1309.04
+## AIC=2626.08   AICc=2626.38   BIC=2637.7</code></pre>
+<p>As we can see, according to the algorithm, the best model is an <span class="math inline">\(ARIMA=(1,1,1)(1,0,0)_{12}\)</span>. However, let’s take a look for the information criterion estimates of other models:</p>
+<pre class="r"><code># Update the list
+list_models[[&quot;best_arima&quot;]]=best_arima
+
+# Information criterion table
+information_criterion=purrr::map_df(list_models, .f = function(x){
+        data.frame(AIC=x$aic, AICc=x$aicc, BIC=x$bic)
+    }) %&gt;%
+    mutate(model=names(list_models)) %&gt;%
+    select(model, everything()) %&gt;%
+    arrange(AIC)
+
+information_criterion</code></pre>
+<pre><code>##           model      AIC     AICc      BIC
+## 1    best_arima 2626.076 2626.384 2637.697
+## 2  arima011.110 2633.463 2633.646 2642.179
+## 3  arima011.011 2635.369 2635.552 2644.085
+## 4  arima110.011 2635.984 2636.168 2644.700
+## 5      arima112 3251.469 3251.751 3263.431
+## 6      arima111 3294.446 3294.614 3303.417
+## 7      arima022 3295.666 3295.835 3304.617
+## 8      arima011 3311.346 3311.429 3317.327
+## 9      arima121 3313.461 3313.630 3322.411
+## 10     arima021 3314.258 3314.342 3320.225</code></pre>
+<p>Contrary to what many people think, <strong>algorithms do not do magic</strong>, looking at ACF and PACF we notice that a first differentiation of the seasonal component was necessary to make stationary the series. Here we see that even though <code>best_arima</code> does better than non-seasonal models, it outperforms to the models specified by inspection and intuition. But not everything is lost, we can adapt the algorithm to take in count seasonal differentiation.</p>
+<pre class="r"><code>best_arima_update=forecast::auto.arima(y = tou_usa_ts, D = 1)
+
+best_arima_update</code></pre>
+<pre><code>## Series: tou_usa_ts 
+## ARIMA(1,1,1)(1,1,0)[12] 
+## 
+## Coefficients:
+##          ar1      ma1     sar1
+##       0.7602  -0.9635  -0.4161
+## s.e.  0.0712   0.0299   0.0878
+## 
+## sigma^2 estimated as 15420614:  log likelihood=-1309.04
+## AIC=2626.08   AICc=2626.38   BIC=2637.7</code></pre>
+<p>By comparing with the AIC of the new updated model with the best one previously estimate we found that it is <span class="math inline">\(100*\frac{AIC(arima011.011)}{AIC(best\_arima\_update)}-1=0.8\%\)</span> better than <code>arima011.011</code>.</p>
+</div>
+<div id="one-step-ahead-prediction-accuracy" class="section level3">
+<h3>One-step-ahead prediction accuracy</h3>
+<p>There are several measures to choose a model following a minimization function between the difference of actual and estimated values. It is important to mention that these results show the <em>in-sample</em> errors, that is, the one-step-ahead prediction error taken from the training dataset, which in this case is all the information. Finally, following the options in the <code>forecast</code> there is the possibility to calculate:</p>
+<ul>
+<li>ME: Mean Error</li>
+<li>RMSE: Root Mean Squared Error</li>
+<li>MAE: Mean Absolute Error</li>
+<li>MPE: Mean Percentage Error</li>
+<li>MAPE: Mean Absolute Percentage Error</li>
+<li>MASE: Mean Absolute Scaled Error</li>
+<li>ACF1: Autocorrelation of errors at lag 1.</li>
+</ul>
+<pre class="r"><code># Update the list
+list_models[[&quot;best_arima_update&quot;]]=best_arima_update
+
+# Top performers
+
+purrr::map(list_models, .f = function(x){
+        forecast::accuracy(x)
+    }) %&gt;%
+    purrr::discard(is.null) %&gt;%
+    plyr::ldply(., rbind) %&gt;%
+    #t() %&gt;%
+    as.data.frame() %&gt;%
+    # tibble::rownames_to_column() %&gt;%
+    set_names(c(&quot;model&quot;, colnames(forecast::accuracy(arima011)))) %&gt;%
+    arrange(RMSE) %&gt;%
+    tidyr::gather(key = measure, value = value, -model) %&gt;%
+    ggplot2::ggplot(aes(x=model, y=value))+
+        geom_col()+
+        facet_grid(~measure, scales = &quot;free&quot;) +
+        coord_flip()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-21-1.png" alt="Accuracy measures" width="864" />
+<p class="caption">
+Figure 5: Accuracy measures
+</p>
+</div>
+<p>The table above present the error measures by model ordered by RMSE, in which the <em>arima_best</em> has the lowest value. Nonetheless, for many other error measures <code>arima110.011</code> performed better. Most of the time the decision of the best model is tricky, and always we seek to work with the most parsimonious one. <strong>In this case, <code>arima110.011</code> seems to be the winner.</strong></p>
+</div>
+</div>
+<div id="diagnostic-checks" class="section level2">
+<h2>Diagnostic checks</h2>
+<p>Before continuing to the forecasting section, it is important to check if residuals’ assumptions are accomplished.</p>
+<pre class="r"><code>arima_res=purrr::map(list_models, .f = function(x){
+        data.frame(date=tou_usa$date
+                   , residuals=as.numeric(residuals(x)))
+    }) %&gt;%
+    plyr::join_all(by=&quot;date&quot;) %&gt;%
+    purrr::set_names(c(&quot;date&quot;, names(list_models))) %&gt;%
+    tbl_df() %&gt;%
+    tidyr::gather(model, value, -date)</code></pre>
+<div id="box-pierce-and-ljung-box-tests" class="section level3">
+<h3>Box-Pierce and Ljung-Box Tests</h3>
+<p>Box-Ljung test is a diagnostic tool used to test the lack of fit of a time series model. It examines <span class="math inline">\(m\)</span> autocorrelations of the residuals, autocorrelations are very small, we conclude that the model does not exhibit significant lack of fit.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>Hypothesis:</p>
+<ul>
+<li>H0: The model does not exhibit lack of fit.</li>
+<li>Ha: The model exhibits lack of fit.</li>
+</ul>
+<pre class="r"><code>Box.test(x = arima011.011$residuals, lag = 24, fitdf = 12, type=&quot;Ljung&quot;)</code></pre>
+<pre><code>## 
+##  Box-Ljung test
+## 
+## data:  arima011.011$residuals
+## X-squared = 17.555, df = 12, p-value = 0.1299</code></pre>
+<pre class="r"><code>Box.test(x = arima011.011$residuals, lag = 24, fitdf = 12)</code></pre>
+<pre><code>## 
+##  Box-Pierce test
+## 
+## data:  arima011.011$residuals
+## X-squared = 16.06, df = 12, p-value = 0.1885</code></pre>
+<p>Since the p-values of the Box-Ljung and Box-Pierce tests are above the significance threshold of 0.05, it means that we don’t enough evidence against the null hypothesis, hence we can infer that model’s residuals are random, or in other words, they do not present autocorrelation (serial independence).</p>
+</div>
+<div id="normality" class="section level3">
+<h3>Normality</h3>
+<pre class="r"><code>ggplot2::ggplot(arima_res, aes(sample=value))+
+    stat_qq()+
+    facet_wrap(~model, scales = &quot;free&quot;)+
+    labs(x=&quot;theoretical quantiles&quot;, y=&quot;sample quantiles&quot;)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-24"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-24-1.png" alt="QQ plots of the residuals" width="672" />
+<p class="caption">
+Figure 6: QQ plots of the residuals
+</p>
+</div>
+<p>Values seem to work well (close to a diagonal of 45°), thus, we can assume that all models present a normal distribution.</p>
+</div>
+<div id="variance" class="section level3">
+<h3>Variance</h3>
+<pre class="r"><code>ggplot(data = arima_res, aes(x=date, y=value))+
+    geom_line()+
+    facet_wrap(~model, scales=&quot;free&quot;)</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-25"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-25-1.png" alt="Residuals series" width="672" />
+<p class="caption">
+Figure 7: Residuals series
+</p>
+</div>
+<p>There are a couple of considerations to highlight regarding the variance of the residuals. First, for non-seasonal models there is an increasing variance as the time goes, this clearly demands further treatment (such as <em>Box-Cox</em> transformations) and analysis. Second, for seasonal models, there are outliers that are not precisely captured by the model.</p>
+</div>
+<div id="acf" class="section level3">
+<h3>ACF</h3>
+<pre class="r"><code>forecast::ggAcf(list_models$arima011.011$residuals, main=&quot;&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: main</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Here we can see the ACF of the chosen model <code>arima011.011</code>. In lag 2 there is a value that presents an important sign of autocorrelation. Nonetheless, we are can be fairly confident in the fact that does not break the assumptions.</p>
+</div>
+<div id="pacf" class="section level3">
+<h3>PACF</h3>
+<pre class="r"><code>forecast::ggPacf(list_models$arima011.011$residuals, main=&quot;&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: main</code></pre>
+<p><img src="/tutorial/arima_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>Same as ACF, in lag 2 there is an autocorrelation close to the confidence interval. As stated, it is not a relevant problem.</p>
+</div>
+</div>
+<div id="forecast" class="section level2">
+<h2>Forecast</h2>
+<pre class="r"><code>forecast::forecast(arima011.011) %&gt;%
+    autoplot(main=&quot;&quot;)+
+    geom_forecast()+
+    scale_x_continuous(limits = c(2010, 2019.5), breaks = 2010:2019.5)+
+    labs(x=&quot;date&quot;, y=&quot;tourist arrivals&quot;)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="/tutorial/arima_files/figure-html/unnamed-chunk-28-1.png" alt="Forecast of USA tourist to CR from $ARIMA(0,1,1)(0,1,1)_{12}$ model" width="672" />
+<p class="caption">
+Figure 8: Forecast of USA tourist to CR from <span class="math inline">\(ARIMA(0,1,1)(0,1,1)_{12}\)</span> model
+</p>
+</div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references">
+<div id="ref-box2015time">
+<p>Box, George E P, Gwilym M Jenkins, Gregory C Reinsel, and Greta M Ljung. 2015. <em>Time series analysis: forecasting and control</em>. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-Cowpertwait2009">
+<p>Cowpertwait, Paul, and Andrew Metcalfe. 2009. <em>Introductory Time Series with R</em>.</p>
+</div>
+<div id="ref-shumway2010time">
+<p>Shumway, Robert H, and David S Stoffer. 2010. <em>Time Series Analysis and Its Applications: With R Examples</em>. Springer Science &amp; Business Media.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Stands for Independently Identically Distributed, for statistical inference purposes it is desirable that the random variables follow the same distribution as well as been mutually independent<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>In this study “series”&quot; or “signal” is going to be used indifferentially<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p><a href="http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4481.htm" class="uri">http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4481.htm</a><a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+          </div>
+
+          
+
+        </div>
+
+        <div class="body-footer">
+          Last updated on Sep 9, 2018
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//partiallyrandom-1.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.1846cc5c27f3006b56814095ec02281f.js"></script>
+
+  </body>
+</html>
+
+

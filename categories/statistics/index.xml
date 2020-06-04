@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on Obryan Poyser</title>
+    <link>/categories/statistics/</link>
+    <description>Recent content in Statistics on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why robust regression?</title>
+      <link>/post/robust-regression/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/robust-regression/</guid>
+      <description>For every researcher there is that moment when we question ourself of how much our findings could hold if we relax one or more assumptions. Specially in economics where we breath and eat regressions.
+Robust statistics is a set of procedures that aim to provide near ideal estimates even if some of the assumptions in which the estimation method relies are not met. Particularly, a robust regression represents an alternative to least square estimations that is less susceptible to the existance of “data contamination”, that is, influential points (outliers or leverage) that are unlikely to match a normal distribution.</description>
+    </item>
+    
+    <item>
+      <title>Optimal lag length in VAR models</title>
+      <link>/post/visual-selection-of-optimal-lag-length-in-var-models/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/visual-selection-of-optimal-lag-length-in-var-models/</guid>
+      <description>Recently, I have been playing with vector autoregressive models. During the model specification and “sanity checks” one has to choose model order, that is, how many LHS lags introduce in the multi-equation model.
+The most common approach for lag order selection is to inspect among different information criteria and choose the model that minimizes these indicators. There are several Information Criterion alternatives, and they vary on the weight they put on prediction error and parameters.</description>
+    </item>
+    
+    <item>
+      <title>Example of frequentist perspective of probability</title>
+      <link>/post/example-of-frequentist-perspective-of-probability/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/example-of-frequentist-perspective-of-probability/</guid>
+      <description>This function tries to visualize the frequentist perspective of probability by flipping an equilibrated π(θ)=0.5 coin.
+Frequentist approach establish that the true probability of an event θ is given by:
+\[ \pi(\theta_i)=\lim_{\theta_i\to\infty} \frac{n_{\theta\_i}}{n_{trials,i}} \]
+# obs is the number of times a coin is flipped # coins are the number of indepedent coins tossed at the same time f.coin=function(flips, coins){ plot(x = 0 , ylab = &amp;quot;Probability&amp;quot; , xlab = &amp;quot;Times&amp;quot; , main = paste(&amp;quot;Flipping&amp;quot;, coins, &amp;quot;indepedent coins&amp;quot;, flips, &amp;quot;times&amp;quot;) , type = &amp;quot;n&amp;quot;, ylim = c(0, 1), xlim = c(0, flips)) abline(h = .</description>
+    </item>
+    
+  </channel>
+</rss>

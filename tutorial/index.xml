@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overview on Obryan Poyser</title>
+    <link>/tutorial/</link>
+    <description>Recent content in Overview on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/tutorial/sent_analysis_data_vis/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/sent_analysis_data_vis/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/data_wrangling/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/data_wrangling/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/data_wrangling2/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/data_wrangling2/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/intro_r_language/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/intro_r_language/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/reprod_res_web_scrap/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/reprod_res_web_scrap/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/supervised/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/supervised/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/unsupervised/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/unsupervised/</guid>
+      <description>Version: Fullscreen PDF Rmd</description>
+    </item>
+    
+    <item>
+      <title>Autoregressive Integrated Moving Average</title>
+      <link>/tutorial/arima/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial/arima/</guid>
+      <description>Background Time series studies observations that are recorded sequentially over time. The consideration of the time domain is a special characteristic that demands the application of specific statistical approaches. Among the main consideration we have to consider there it is the “memory” of the observations, which means that current values are serially dependent of previous values, thus it violates the \(i.i.d.\)1 assumption. Second, it is possible to separate a signal2 into components which represent specific features of the data Box et al.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/datasets/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial/datasets/readme/</guid>
+      <description>This folder contains several datasets that are going to be used in the workshop.
+   Name Source     IMDB TV show ratings The Economist (curated by tidytuesday)   Bic Mac Index The Economist    </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book review on Obryan Poyser</title>
+    <link>/categories/book-review/</link>
+    <description>Recent content in Book review on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/book-review/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My early thoughts on Atomic Habits</title>
+      <link>/post/my-early-thoughts-on-atomic-habits/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-early-thoughts-on-atomic-habits/</guid>
+      <description>The past weekend I started to read Atomic Habits by James Clear, it has been quite nice so far, but I mean, after checking out several articles on behavior-related issues and decision making, there is little margin for a surprise. Nonetheless, there is one thing I believe the author did it right, which simplifies concepts (not entirely an easy task).
+Among the first ideas James Clear try to convince the reader is to forget about the goals and concentrate the effort on what he called system, which is nothing else than a set of articulated intermediate goals whatsoever, but in the end, goals…</description>
+    </item>
+    
+  </channel>
+</rss>

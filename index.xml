@@ -1,0 +1,823 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Obryan Poyser on Obryan Poyser</title>
+    <link>/</link>
+    <description>Recent content in Obryan Poyser on Obryan Poyser</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why robust regression?</title>
+      <link>/post/robust-regression/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/robust-regression/</guid>
+      <description>
+
+
+&lt;p&gt;For every researcher there is &lt;strong&gt;that&lt;/strong&gt; moment when we question ourself of how much our findings could hold if we relax one or more assumptions. Specially in economics where we breath and eat regressions.&lt;/p&gt;
+&lt;p&gt;Robust statistics is a set of procedures that aim to provide near ideal estimates even if some of the assumptions in which the estimation method relies are not met. Particularly, a robust regression represents an alternative to least square estimations that is less susceptible to the existance of “data contamination”, that is, influential points (outliers or leverage) that are unlikely to match a normal distribution.&lt;/p&gt;
+&lt;p&gt;Under the existance of heavy-tailed error distributions a OLS overemphasize the weight of those outliers, specifically at &lt;span class=&#34;math inline&#34;&gt;\(e_t\sim1/T\)&lt;/span&gt;. Having said that, a OLS estimator has the form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+y_t=\boldsymbol{x_i&amp;#39;}\beta+e_t
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;with an objective function &lt;span class=&#34;math inline&#34;&gt;\(L(e_t)=e_t^2\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\hat{\beta}=argmin_\beta=\sum_{t=1}^T(y_t-\boldsymbol{x_t&amp;#39;}\beta-e_t)^2=\sum_{t=1}^T(y_t-\hat{y_t})^2=\sum_{t=1}^T\hat{e}_t^2
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Here is when the “robust” appear, the idea is to reweight the error terms that are impacting the estimator by assigning them a lower power. Among the most relevant robust estimators we have the M&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;-estimation&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+argmin=\sum_t^T f(y_t-\boldsymbol{x_{tj}}\beta_j)
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;M stands for Maximum Likelihood&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My early thoughts on Atomic Habits</title>
+      <link>/post/my-early-thoughts-on-atomic-habits/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-early-thoughts-on-atomic-habits/</guid>
+      <description>
+
+
+&lt;p&gt;The past weekend I started to read Atomic Habits by James Clear, it has been quite nice so far, but I mean, after checking out several articles on behavior-related issues and decision making, there is little margin for a surprise. Nonetheless, there is one thing I believe the author did it right, which simplifies concepts (not entirely an easy task).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jamesclear.com/wp-content/uploads/2019/03/AtomicHabits_3D-768x916.png&#34; style=&#34;float: left; height: 200px&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Among the first ideas James Clear try to convince the reader is to forget about the goals and concentrate the effort on what he called &lt;em&gt;system&lt;/em&gt;, which is nothing else than a set of articulated intermediate goals whatsoever, but in the end, goals…&lt;/p&gt;
+&lt;p&gt;I am aware of the need to use or (re)create new concepts since &lt;em&gt;sophisticated&lt;/em&gt; readers might think there is no reason to read a book which statements are just rephrasing of old books. For instance, the feedback loop of habits’ modification is given as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+cue \to craving \to response \to reward \to cue \to \dots
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;My cringe moment occurred when I read what is &lt;em&gt;craving&lt;/em&gt;, defined as &lt;em&gt;“the motivational force behind every habit”&lt;/em&gt;, hmm well those are the old &lt;em&gt;desires&lt;/em&gt;? Come on… Not a big deal, maybe today I just too judgemental.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimal lag length in VAR models</title>
+      <link>/post/visual-selection-of-optimal-lag-length-in-var-models/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/visual-selection-of-optimal-lag-length-in-var-models/</guid>
+      <description>
+
+
+&lt;p&gt;Recently, I have been playing with vector autoregressive models. During the model specification and “sanity checks” one has to choose model order, that is, how many LHS lags introduce in the multi-equation model.&lt;/p&gt;
+&lt;p&gt;The most common approach for lag order selection is to inspect among different information criteria and choose the model that minimizes these indicators. There are several Information Criterion alternatives, and they vary on the weight they put on prediction error and parameters. For instance, Schwarz-Bayes (SC or BIC) over penalized big models (several estimated parameters) in comparison to Akaike (AIC). Therefore, there is always on researchers’ hand to choose the order according to the different IC options. But there is little “issue”, different IC, have unequal units, therefore, they are not directly comparable, this is actually not a huge deal, but I just find out it is a good idea to normalize the outputs for each lag order as a way to have comparable units.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+IC_{i}^{norm}=\frac{IC_i-min(IC_i)}{max(IC_i)-min(IC_i)}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Using &lt;code&gt;VARselect&lt;/code&gt; function from the &lt;code&gt;vars&lt;/code&gt; package brings the following output&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vars::VARselect(data)$criteria&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                 1          2          3          4          5          6
+## AIC(n) -0.3890208 -0.6033652 -0.7052740 -0.7619655 -0.7955089 -0.8474857
+## HQ(n)  -0.3496596 -0.5312029 -0.6003106 -0.6242011 -0.6249434 -0.6441191
+## SC(n)  -0.2833281 -0.4095953 -0.4234268 -0.3920411 -0.3375073 -0.3014068
+## FPE(n)  0.6777203  0.5469686  0.4939752  0.4667523  0.4513592  0.4285033
+##                 7          8           9           10
+## AIC(n) -0.8643857 -0.8792435 -0.89673697 -0.903090028
+## HQ(n)  -0.6282181 -0.6102748 -0.59496726 -0.568519262
+## SC(n)  -0.2302296 -0.1570102 -0.08642642 -0.004702242
+## FPE(n)  0.4213293  0.4151245  0.40793694  0.405367380&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then again, it is not a big deal searching through the columns and finding the minimum rowwise. For STATA users this is more intuitive, since it is organized columnwise like:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vars::VARselect(data)$criteria %&amp;gt;% t()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        AIC(n)      HQ(n)        SC(n)    FPE(n)
+## 1  -0.3890208 -0.3496596 -0.283328144 0.6777203
+## 2  -0.6033652 -0.5312029 -0.409595283 0.5469686
+## 3  -0.7052740 -0.6003106 -0.423426803 0.4939752
+## 4  -0.7619655 -0.6242011 -0.392041105 0.4667523
+## 5  -0.7955089 -0.6249434 -0.337507304 0.4513592
+## 6  -0.8474857 -0.6441191 -0.301406823 0.4285033
+## 7  -0.8643857 -0.6282181 -0.230229573 0.4213293
+## 8  -0.8792435 -0.6102748 -0.157010158 0.4151245
+## 9  -0.8967370 -0.5949673 -0.086426420 0.4079369
+## 10 -0.9030900 -0.5685193 -0.004702242 0.4053674&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But in the end, they lack an easier comparable point, then, why not normalizing them? First, let’s create a simple function for normalized data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;normF &amp;lt;- function(x){
+    (x-min(x, na.rm = T))/(max(x, na.rm = T)-min(x, na.rm = T))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, start from a over-amplified (high frequency data has its pros) selection of orders, and some “tidying” we can create the following graph:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;VARselect(data, lag.max = 40, type = &amp;quot;both&amp;quot;)$criteria %&amp;gt;%
+    t() %&amp;gt;%
+    as_tibble() %&amp;gt;%
+    tibble::rownames_to_column(var = &amp;quot;lag&amp;quot;) %&amp;gt;%
+    set_names(nm = c(&amp;quot;lag&amp;quot;, &amp;quot;AIC&amp;quot;, &amp;quot;HQ&amp;quot;, &amp;quot;SC&amp;quot;, &amp;quot;FPE&amp;quot;)) %&amp;gt;%
+    mutate_at(.vars = vars(-lag), ~normF(.)) %&amp;gt;%
+    mutate(lag=as.numeric(lag)) %&amp;gt;%
+    gather(key = &amp;quot;IC&amp;quot;, value = &amp;quot;value&amp;quot;, -lag) %&amp;gt;%
+    group_by(IC) %&amp;gt;%
+    mutate(diff=tsibble::difference(value)) %&amp;gt;%
+    gather(key = &amp;quot;key&amp;quot;, value = &amp;quot;value&amp;quot;, -lag, -IC) %&amp;gt;%
+    ggplot(aes(lag, value, col=IC))+
+    geom_line() +
+    facet_wrap(~key, ncol = 1, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-03-19-visual-selection-of-optimal-lag-length-in-var-models.en_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;From the graph below we can easily conclude that indeed, Schwarz-Bayes Criterion (SC) penalized big models, same as Hannan-Quinn Criterion, being 2 and 6 lags respectively, whereas Akaike IC and Akaike’s Final Prediction Error Criterion (FPE) coincide in 10 lags.&lt;/p&gt;
+&lt;p&gt;Another way to help in the decision is to select the number of lags in which the sequential difference stabilizes. Which actually happens around 8 lags, which could be a more parsimonious model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/sent_analysis_data_vis/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/sent_analysis_data_vis/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_5.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_5.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_5.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_5.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/data_wrangling/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/data_wrangling/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_2.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_2.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_2.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_2.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/data_wrangling2/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/data_wrangling2/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_3.html#1&#34; width=&#34;1280&#34; height=&#34;720&#34; scrolling=&#34;yes&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_3.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_3.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_3.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/intro_r_language/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/intro_r_language/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_1.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_1.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_1.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_1.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/reprod_res_web_scrap/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/reprod_res_web_scrap/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_4.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_4.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_4.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_4.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/supervised/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/supervised/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_7.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_7.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_7.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws76.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/unsupervised/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tutorial/unsupervised/</guid>
+      <description>&lt;iframe type=&#34;video/quicktime&#34; src=&#34;https://opoyc.github.io/data_science_workshop/ws_6.html#1&#34; width=&#34;720&#34; height=&#34;405&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Version:
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_6.html#1&#34; target=&#34;_blank&#34;&gt;Fullscreen&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_6.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;
+&lt;a href=&#34;https://opoyc.github.io/data_science_workshop/ws_6.Rmd&#34; target=&#34;_blank&#34;&gt;Rmd&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>External Project</title>
+      <link>/project/udecision/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/project/udecision/</guid>
+      <description>&lt;p&gt;We are passionate about providing “decision footholds” that serve as mechanisms for informational decision-making in educational settings. Our organization helps youngsters to effectively increase the confidence that they made the right career choice.
+To decrease the uncertainty, we have developed a career decision-making mobile app that delivers research-based advice. The app informs about the optimal steps towards a career planning consistent with personal objectives and seemly hidden future obstacles.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Herding behavior in cryptocurrency markets</title>
+      <link>/publication/herding/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/herding/</guid>
+      <description>&lt;!--
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    
+Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+--&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is to be rational?</title>
+      <link>/post/what-is-to-be-rational/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/what-is-to-be-rational/</guid>
+      <description>
+
+
+&lt;p&gt;This afternoon I was reading a book about rationality in voting behavior called “An economic theory of political action in a democracy”&lt;span class=&#34;citation&#34;&gt;(Downs 1957)&lt;/span&gt;. An amazing work (so far), for sure I do not discard that it’s likely I’ve a biased position regarding the application and precision of rational models in economics. However, what impressed me was authors’ self-awareness of the underlying flaws behind rational analysis in decision making, and not covering them like they do not exist in a book from 1957! Definitely, a book I wish have time to read in detail… Nevertheless, I won’t let you miss the opportunity to read what Anthony Downs said about the requirements (or assumptions) for being called a econo-rational human:&lt;/p&gt;
+&lt;p&gt;Economic rationality can also be formally defined in another manner. A rational man is one who behaves as follows:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;he can always make a decision when confronted with a range of alternatives;&lt;/li&gt;
+&lt;li&gt;he ranks all the alternatives facing him in order of his preference in such a way that each is either preferred to, indifferent to, or inferior to each other;&lt;/li&gt;
+&lt;li&gt;his preference ranking is transitive;&lt;/li&gt;
+&lt;li&gt;he always chooses from among the possible alternatives that which ranks highest in his preference ordering; and&lt;/li&gt;
+&lt;li&gt;he always makes the same decision each time he is confronted with the same alternatives.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1 unnumbered&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references&#34;&gt;
+&lt;div id=&#34;ref-downs1957economic&#34;&gt;
+&lt;p&gt;Downs, Anthony. 1957. “An economic theory of political action in a democracy.” &lt;em&gt;Journal of Political Economy&lt;/em&gt; 65 (2). The University of Chicago Press: 135–50.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Autoregressive Integrated Moving Average</title>
+      <link>/tutorial/arima/</link>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial/arima/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Background&lt;/h1&gt;
+&lt;p&gt;Time series studies observations that are recorded sequentially over time. The consideration of the &lt;em&gt;time&lt;/em&gt; domain is a special characteristic that demands the application of specific statistical approaches. Among the main consideration we have to consider there it is the “memory” of the observations, which means that current values are serially dependent of previous values, thus it violates the &lt;span class=&#34;math inline&#34;&gt;\(i.i.d.\)&lt;/span&gt;&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; assumption. Second, it is possible to separate a signal&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; into components which represent specific features of the data &lt;span class=&#34;citation&#34;&gt;Box et al. (2015)&lt;/span&gt; see also &lt;span class=&#34;citation&#34;&gt;Cowpertwait and Metcalfe (2009)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;autoregressive-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Autoregressive model&lt;/h2&gt;
+&lt;p&gt;Autoregressive means that actual observations &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; are determined by previous observations, hence, &lt;span class=&#34;math inline&#34;&gt;\(x_t=f(x_{t-1}, x_{t-2},... ,x_{t-p})\)&lt;/span&gt;. For instance, if someone uses an hygrometer to measure the level of humidity after a rainstorm twice a day in Costa Rica, one can expect that levels in the afternoon are highly correlated with taken measures in the morning, so does with previous days measures, but with less intensity. The formal representation can be described by:&lt;/p&gt;
+&lt;p&gt;An autoregressive (AR) process or order &lt;em&gt;p&lt;/em&gt; has the form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{equation}
+x_t=\phi_1 x_{t-1} + \phi_2 x_{t-2} \:+ \dots\:+\:\phi_p x_{t-p}+e_t
+\end{equation}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; is stationary (this means that the underlying probabilities that govern a process do not change over time), whereas &lt;span class=&#34;math inline&#34;&gt;\(\phi_1, \phi_2,\dots,\phi_p\)&lt;/span&gt; are constants that determine the magnitude of the relationship between the current value previous. Finally, &lt;span class=&#34;math inline&#34;&gt;\(e_t\)&lt;/span&gt; represent the innovations, that is to say, it captures everything that is not explained by the regressors, assumed to be normally distributed.&lt;/p&gt;
+&lt;p&gt;For the sake of illustration, we can simulate how an AR(p) process looks like.&lt;/p&gt;
+&lt;div id=&#34;ar1-phi0.8&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;AR(1) | &lt;span class=&#34;math inline&#34;&gt;\(\phi=0.8\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=0.8x_{t-1}+e_t\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In this example, current values are highly and positively determined by previous ones.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(astsa)
+require(ggplot2)
+require(dplyr)
+
+arima.sim(model = list(order = c(1, 0, 0), ar = c(.9)), n = 100) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ar1-phi-0.8&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;AR(1) | &lt;span class=&#34;math inline&#34;&gt;\(\phi=-0.8\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=-0.8x_{t-1}+e_t\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In this case, current values are highly and negatively determined by previous ones. Hence, it is expected to show a “switch” in the signs, for instance, &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; it is going to be positive if &lt;span class=&#34;math inline&#34;&gt;\(x{t-1}\)&lt;/span&gt; is negative and so on.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(1, 0, 0), ar = c(-.8)), n = 100) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ar1-phi0.2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;AR(1) | &lt;span class=&#34;math inline&#34;&gt;\(\phi=0.2\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=0.2x_{t-1}+e_t\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In this example, current values are barely and positively determined by previous ones.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(1, 0, 0), ar = c(.2)), n = 100) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ar2-phi_1-phi_20.9--0.5&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;AR(2) | &lt;span class=&#34;math inline&#34;&gt;\(\phi_{1}, \phi_{2}=(0.9, -0.5)\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=0.9x_{t-1}-0.5x_{t-2}+e_t\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This example shows a more complex behavior. Current values are expected to be positively related to one step behind but negatively contaminated with two steps behind.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(2, 0, 0), ar = c(.9, -.5)), n = 200) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;moving-average-model&#34; class=&#34;section level2 tabset tabset-fade tabset-pills&#34;&gt;
+&lt;h2&gt;Moving average model&lt;/h2&gt;
+&lt;p&gt;The other component of ARIMA is the moving average (MA) which assumes that &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; is determined by a linear combination of the innovations “e_t”. In this representation each previous set of errors have a different weight. The formal representation can be described by:&lt;/p&gt;
+&lt;p&gt;An autoregressive (AR) process or order &lt;em&gt;p&lt;/em&gt; has the form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+x_t=e_t+\theta_1 e_{t-1}+\theta_2 e_{t-2}+\dots+\theta_q e_{t-q}
+\]&lt;/span&gt;
+As it was previously stated, &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; is stationary, &lt;span class=&#34;math inline&#34;&gt;\(q\)&lt;/span&gt; is the amount of lags, &lt;span class=&#34;math inline&#34;&gt;\(\theta_1, \theta_2,\dots,\theta_q\)&lt;/span&gt; are parameters different from zero.&lt;/p&gt;
+&lt;p&gt;For the sake of illustration, we can simulate how an AR(p) process looks like.&lt;/p&gt;
+&lt;div id=&#34;ma1-theta0.9&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MA(1) | &lt;span class=&#34;math inline&#34;&gt;\(\theta=0.9\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=e_t+0.9e_{t-1}\)&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(0, 0, 1), ma = c(.9)), n = 100) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ma1-theta-0.9&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MA(1) | &lt;span class=&#34;math inline&#34;&gt;\(\theta=-0.9\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=e_t-0.9e_{t-1}\)&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(0, 0, 1), ma = c(-.9)), n = 100) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ma2-theta_1-theta_2-0.4-0.5&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;MA(2) | &lt;span class=&#34;math inline&#34;&gt;\(\theta_{1}, \theta_{2}=(-0.4, 0.5)\)&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Form: &lt;span class=&#34;math inline&#34;&gt;\(x_t=e_t-0.4e_{t-1}+0.5e_{t-2}\)&lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima.sim(model = list(order = c(0, 0, 2), ma = c(-.4, .5)), n = 200) %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    ggplot(aes(x=as.numeric(rownames(.)), y=x))+geom_line()+
+        labs(x=&amp;quot;observations&amp;quot;, y=&amp;quot;simulated values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;integrated-autoregressive-moving-average-arima&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Integrated Autoregressive Moving Average (ARIMA)&lt;/h2&gt;
+&lt;p&gt;Autoregressive and moving average models or ARIMA(p,d,q) can be combined in order improve the estimates of a model, as expected , this models are simply named ARMA models. It is assumed that a time series is partly AR and partly MA, then it can be described as:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+x_t=\phi_1 x_{t-1} + \phi_2 x_{t-2} \:+ \dots\:+\:\phi_p x_{t-p}+e_t+\theta_1 e_{t-1}+\theta_2 e_{t-2}+\dots+\theta_q e_{t-q}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Until now, it has been assumed that &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; are stationary, however, this assumption is not satisfied in most of the real-world problems, hence, we frequently face non-stationary time series. Non-stationary means that the average of the observed values is not constant over time. One common procedure to “make” &lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; stationary is via differentiating. For instance, an AR model gave by:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\begin{align*}
+x_t &amp;amp;= x_{t-1}+e_t \\
+x_t-x_{t-1} &amp;amp;= e_t \\
+\triangledown x_t &amp;amp;=e_t
+\end{align*}
+\]&lt;/span&gt;
+As &lt;span class=&#34;citation&#34;&gt;Shumway and Stoffer (2010)&lt;/span&gt; mentions, there are few steps to follow in order to construct an ARIMA model to time series data, these steps are:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Plot data&lt;/li&gt;
+&lt;li&gt;Transforming data&lt;/li&gt;
+&lt;li&gt;Identify dependence orders&lt;/li&gt;
+&lt;li&gt;Parameter estimation&lt;/li&gt;
+&lt;li&gt;Diagnostic&lt;/li&gt;
+&lt;li&gt;Model choice&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In this applied case we are going to apply Autoregressive Integrated Moving Average Models (ARIMA) to forecast the number of foreign arrivals in Costa Rica by any via.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Data&lt;/h1&gt;
+&lt;p&gt;In this study we consider the analysis of monthly tourist’s arrivals from January 2005 to April 2017, thus we are dealing with &lt;span class=&#34;math inline&#34;&gt;\(n=148\)&lt;/span&gt; observations. The information is provided by the statistics department of the &lt;a href=&#34;www.ict.go.cr&#34;&gt;Costarrican Institute of Tourism&lt;/a&gt;. The data is recorded in a pdf file, in which the tables show the amount of tourist that arrive in Costa Rica recorded by country. Since we deal with many countries, and each series describes an idiosyncratic trend and seasonal components, it has been decided to limit the analysis to the United States tourist.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 740 x 15
+##    year  country region january february march april   may  june  july
+##    &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 05    otros_… africa     100       90    99   106    95    70    91
+##  2 05    belice  ameri…      74       36    48    35    53    68    93
+##  3 05    el_sal… ameri…    3915     2605  4017  3151  3381  3208  4143
+##  4 05    guatem… ameri…    3041     2514  3094  2851  3088  4261  3085
+##  5 05    hondur… ameri…    3004     1637  2191  2267  1804  2295  2497
+##  6 05    nicara… ameri…   41208    17106 19461 15912 15630 16634 18832
+##  7 05    panama  ameri…    8098     6472  5660  4243  5154  5126  6029
+##  8 05    canada  ameri…   14740    14261 13224  7184  3973  3017  4192
+##  9 14    china   asia       452      550   811   629   631   582   610
+## 10 05    mexico  ameri…    3155     3772  4939  3365  3769  3976  6973
+## # … with 730 more rows, and 5 more variables: august &amp;lt;dbl&amp;gt;,
+## #   september &amp;lt;dbl&amp;gt;, october &amp;lt;dbl&amp;gt;, november &amp;lt;dbl&amp;gt;, december &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;data-filtering-and-transformation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data filtering and transformation&lt;/h2&gt;
+&lt;p&gt;It is precise to filter the observations of United States, then restructure the data in order to have a “long” dataframe since as it can notice the original dataset is “wide”, with one column per month, and another to describe the year.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(tidyverse)
+
+# Support function to format months
+
+m.f=function(x){
+    s1=toupper(substr(x,1,1))
+    s2=paste0(s1,substr(x,2,3))
+    return(s2)
+}
+
+tou_usa=data %&amp;gt;%
+    filter(grepl(&amp;quot;estados&amp;quot;, country)) %&amp;gt;%
+    select(-region, -country) %&amp;gt;% # We don&amp;#39;t need this info anymore
+    gather(key = month, value = arrivals, -year) %&amp;gt;% # This function converts data from wide to long
+    mutate(date=paste0(year, m.f(month), &amp;quot;28&amp;quot;) %&amp;gt;% # Create a unique variable that describes date.
+               lubridate::ymd()) %&amp;gt;%               # 28 is an indicator of the last day of the month
+    select(date, arrivals) %&amp;gt;%
+    arrange(date) %&amp;gt;%
+    na.omit()
+
+tou_usa_xts=xts::xts(x = tou_usa$arrivals, order.by = tou_usa$date) # Sometimes is useful to deal
+                                                                   # with xts formats
+tou_usa_ts=ts(data = tou_usa$arrivals, start = c(2005, 1), frequency = 12)     # and ts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tou_usa&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 148 x 2
+##    date       arrivals
+##    &amp;lt;date&amp;gt;        &amp;lt;dbl&amp;gt;
+##  1 2005-01-28    66095
+##  2 2005-02-28    71945
+##  3 2005-03-28    90193
+##  4 2005-04-28    63650
+##  5 2005-05-28    60659
+##  6 2005-06-28    75428
+##  7 2005-07-28    80576
+##  8 2005-08-28    57000
+##  9 2005-09-28    34519
+## 10 2005-10-28    38096
+## # … with 138 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;plotting-the-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Plotting the data&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tou_usa %&amp;gt;%
+    mutate(log_arrivals=log(arrivals)) %&amp;gt;%
+    gather(key = variable, value = value, -date) %&amp;gt;%
+    ggplot(aes(x = date, y = value)) +
+        geom_line() +
+        facet_wrap(~variable, scales = &amp;quot;free&amp;quot;, dir = &amp;quot;v&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-11&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-11-1.png&#34; alt=&#34;North American tourists&#39; arrivals to Costa Rica 2005-2017&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: North American tourists’ arrivals to Costa Rica 2005-2017
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;From the graph above we can highlight two important things, first, the trend is definitely not linear, second, there are multiple seasonal components across the time series. According to ARIMA method is necessary to get rid of such components in order to make the series stationary, although, there are other methods such as &lt;strong&gt;State Space models&lt;/strong&gt; that permit to study each of the components and bring insights about each one. This method is going to be covered in another applied case.&lt;/p&gt;
+&lt;div id=&#34;seasonal-component&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Seasonal component&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;forecast::ggseasonplot(x = tou_usa_ts, year.labels = T, main=&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-12&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-12-1.png&#34; alt=&#34;Seasonal component of USA tourists&#39; arrivals to Costa Rica 2005-2017&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Seasonal component of USA tourists’ arrivals to Costa Rica 2005-2017
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As it can be noticed above, the flow of USA tourists commonly peaks on March, June, July and December.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Analysis&lt;/h1&gt;
+&lt;p&gt;When we study time series Autocorrelation and Partial Autocorrelation functions (ACF &amp;amp; PACF) graphs are extremely useful to visualize dependence orders.&lt;/p&gt;
+&lt;div id=&#34;dependence-orders&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Dependence orders&lt;/h2&gt;
+&lt;div id=&#34;autocorrelation-function&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Autocorrelation function&lt;/h3&gt;
+&lt;p&gt;In order to identify MA in a time series ACF is more useful than PACF. Let’s take a look to the graph below:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(forecast)
+
+forecast::ggAcf(x = tou_usa$arrivals, main=&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-13&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-13-1.png&#34; alt=&#34;Autocorrelation function for tourist arrivals&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Autocorrelation function for tourist arrivals
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The way the ACF decays suggest a MA of order 1 or in other notation an ARIMA(0,1,1), which is decaying up to lag 7. Similarly, a seasonal MA is also expected to be a good approximation. In this case, we are dealing with Seasonal ARIMA’s or SARIMA. SARIMA models are conventionally expressed as &lt;span class=&#34;math inline&#34;&gt;\(ARIMA(p,d,q)(P,D,Q)_m\)&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;partial-autocorrelation-function&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Partial Autocorrelation function&lt;/h3&gt;
+&lt;p&gt;Similarly, identification of AR is easier on a PACF graph. That is: &lt;em&gt;“the number of non-zero partial autocorrelations gives the order of the AR model”&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;forecast::ggAcf(x = tou_usa$arrivals
+                , main=&amp;quot;&amp;quot;
+                , type = &amp;quot;partial&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-14&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-14-1.png&#34; alt=&#34;Partial Autocorrelation function for tourist arrivals&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Partial Autocorrelation function for tourist arrivals
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are two key things to consider here, first, the pattern of the ACF seems to be an AR(1) since it can notice a cutoff in the first lag (a positive autocorrelation of 0.82). Hence, it is expected that a good model can be obtained after applying one differentiation or ARIMA(1,1,0). Second, in lag 11, 12, 13 and 14 there is a great autocorrelation, this is a typical pattern for seasonal time series, hence, a seasonal differentiation can be another good model specification.&lt;/p&gt;
+&lt;p&gt;Several models have to be compared based on error indicators. In the next section, we are going to deal with this problem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;parameters-estimation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Parameters’ estimation&lt;/h2&gt;
+&lt;p&gt;In this section, we estimate several models in order to compare the results, notice that some of them take in count seasonal differentiation such as &lt;code&gt;arima011.110, arima011.011 and, arima110.011&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(forecast)
+
+arima011=Arima(y = tou_usa_ts, order = c(0, 1, 1))
+arima021=Arima(y = tou_usa_ts, order = c(0, 2, 1))
+arima022=Arima(y = tou_usa_ts, order = c(0, 2, 2))
+arima111=Arima(y = tou_usa_ts, order = c(1, 1, 1))
+arima121=Arima(y = tou_usa_ts, order = c(1, 2, 1))
+arima112=Arima(y = tou_usa_ts, order = c(1, 1, 2))
+arima011.110=Arima(y = tou_usa_ts, order = c(0, 1, 1), seasonal=list(order= c(1, 1, 0), period=12.5))
+arima011.011=Arima(y = tou_usa_ts, order = c(0, 1, 1), seasonal=list(order= c(0, 1, 1), period=12.5))
+arima110.011=Arima(y = tou_usa_ts, order = c(1, 1, 0), seasonal=list(order= c(0, 1, 1), period=12.5))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the sake of facilitating the estimation of measures is important to locate all models into a list&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Take the Arima type of models from the environment
+list_models=mget(x = ls(pattern = &amp;quot;^arima&amp;quot;)) %&amp;gt;% # This function keeps all the objects in the list
+    purrr::keep(.p = forecast::is.Arima)     # in which is.Arima is TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;coefficient-estimates&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Coefficient estimates&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima_models_coeff=purrr::map(list_models, .f = function(x){
+        coefficients(x) #%&amp;gt;%
+      #as.data.frame()
+    }) %&amp;gt;%
+    purrr::discard(is.null) %&amp;gt;%
+    plyr::ldply(., rbind) %&amp;gt;%
+    mutate(model=names(list_models)) %&amp;gt;%
+    select(model, ar1, ma1, ma2, sma1, sar1) %&amp;gt;%
+    arrange(model)
+
+arima_models_coeff&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          model         ar1         ma1        ma2       sma1       sar1
+## 1     arima011          NA  0.80280589         NA         NA         NA
+## 2 arima011.011          NA -0.14037398         NA -0.3595258         NA
+## 3 arima011.110          NA -0.16606249         NA         NA -0.4114242
+## 4     arima021          NA -0.99999904         NA         NA         NA
+## 5     arima022          NA -0.19405197 -0.8059476         NA         NA
+## 6 arima110.011 -0.09099471          NA         NA -0.3579534         NA
+## 7     arima111 -0.40079008  0.91407208         NA         NA         NA
+## 8     arima112  0.19739701 -0.05862288 -0.8441638         NA         NA
+## 9     arima121  0.13956669 -0.99999715         NA         NA         NA&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;model-choose&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Model choose&lt;/h3&gt;
+&lt;p&gt;The process of choosing the best model is effortful, for instance, here I estimate 9 different specifications, in which there is one with the finest accuracy (minimum error). However, this process can be time-consuming, since we can continue to specify the orders and compare many times and there is a high chance that we miss a better one. Here the function &lt;code&gt;auto.arima&lt;/code&gt; of the &lt;code&gt;forecast&lt;/code&gt; package provides an algorithm that automates this procedure by comparing multiple models, and give as a proposed one with the lowest Akaike Information Criterion (AIC).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_arima=forecast::auto.arima(y = tou_usa_ts)
+
+best_arima&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Series: tou_usa_ts 
+## ARIMA(1,1,1)(1,1,0)[12] 
+## 
+## Coefficients:
+##          ar1      ma1     sar1
+##       0.7602  -0.9635  -0.4161
+## s.e.  0.0712   0.0299   0.0878
+## 
+## sigma^2 estimated as 15420614:  log likelihood=-1309.04
+## AIC=2626.08   AICc=2626.38   BIC=2637.7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see, according to the algorithm, the best model is an &lt;span class=&#34;math inline&#34;&gt;\(ARIMA=(1,1,1)(1,0,0)_{12}\)&lt;/span&gt;. However, let’s take a look for the information criterion estimates of other models:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Update the list
+list_models[[&amp;quot;best_arima&amp;quot;]]=best_arima
+
+# Information criterion table
+information_criterion=purrr::map_df(list_models, .f = function(x){
+        data.frame(AIC=x$aic, AICc=x$aicc, BIC=x$bic)
+    }) %&amp;gt;%
+    mutate(model=names(list_models)) %&amp;gt;%
+    select(model, everything()) %&amp;gt;%
+    arrange(AIC)
+
+information_criterion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           model      AIC     AICc      BIC
+## 1    best_arima 2626.076 2626.384 2637.697
+## 2  arima011.110 2633.463 2633.646 2642.179
+## 3  arima011.011 2635.369 2635.552 2644.085
+## 4  arima110.011 2635.984 2636.168 2644.700
+## 5      arima112 3251.469 3251.751 3263.431
+## 6      arima111 3294.446 3294.614 3303.417
+## 7      arima022 3295.666 3295.835 3304.617
+## 8      arima011 3311.346 3311.429 3317.327
+## 9      arima121 3313.461 3313.630 3322.411
+## 10     arima021 3314.258 3314.342 3320.225&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Contrary to what many people think, &lt;strong&gt;algorithms do not do magic&lt;/strong&gt;, looking at ACF and PACF we notice that a first differentiation of the seasonal component was necessary to make stationary the series. Here we see that even though &lt;code&gt;best_arima&lt;/code&gt; does better than non-seasonal models, it outperforms to the models specified by inspection and intuition. But not everything is lost, we can adapt the algorithm to take in count seasonal differentiation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_arima_update=forecast::auto.arima(y = tou_usa_ts, D = 1)
+
+best_arima_update&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Series: tou_usa_ts 
+## ARIMA(1,1,1)(1,1,0)[12] 
+## 
+## Coefficients:
+##          ar1      ma1     sar1
+##       0.7602  -0.9635  -0.4161
+## s.e.  0.0712   0.0299   0.0878
+## 
+## sigma^2 estimated as 15420614:  log likelihood=-1309.04
+## AIC=2626.08   AICc=2626.38   BIC=2637.7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By comparing with the AIC of the new updated model with the best one previously estimate we found that it is &lt;span class=&#34;math inline&#34;&gt;\(100*\frac{AIC(arima011.011)}{AIC(best\_arima\_update)}-1=0.8\%\)&lt;/span&gt; better than &lt;code&gt;arima011.011&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;one-step-ahead-prediction-accuracy&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;One-step-ahead prediction accuracy&lt;/h3&gt;
+&lt;p&gt;There are several measures to choose a model following a minimization function between the difference of actual and estimated values. It is important to mention that these results show the &lt;em&gt;in-sample&lt;/em&gt; errors, that is, the one-step-ahead prediction error taken from the training dataset, which in this case is all the information. Finally, following the options in the &lt;code&gt;forecast&lt;/code&gt; there is the possibility to calculate:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ME: Mean Error&lt;/li&gt;
+&lt;li&gt;RMSE: Root Mean Squared Error&lt;/li&gt;
+&lt;li&gt;MAE: Mean Absolute Error&lt;/li&gt;
+&lt;li&gt;MPE: Mean Percentage Error&lt;/li&gt;
+&lt;li&gt;MAPE: Mean Absolute Percentage Error&lt;/li&gt;
+&lt;li&gt;MASE: Mean Absolute Scaled Error&lt;/li&gt;
+&lt;li&gt;ACF1: Autocorrelation of errors at lag 1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Update the list
+list_models[[&amp;quot;best_arima_update&amp;quot;]]=best_arima_update
+
+# Top performers
+
+purrr::map(list_models, .f = function(x){
+        forecast::accuracy(x)
+    }) %&amp;gt;%
+    purrr::discard(is.null) %&amp;gt;%
+    plyr::ldply(., rbind) %&amp;gt;%
+    #t() %&amp;gt;%
+    as.data.frame() %&amp;gt;%
+    # tibble::rownames_to_column() %&amp;gt;%
+    set_names(c(&amp;quot;model&amp;quot;, colnames(forecast::accuracy(arima011)))) %&amp;gt;%
+    arrange(RMSE) %&amp;gt;%
+    tidyr::gather(key = measure, value = value, -model) %&amp;gt;%
+    ggplot2::ggplot(aes(x=model, y=value))+
+        geom_col()+
+        facet_grid(~measure, scales = &amp;quot;free&amp;quot;) +
+        coord_flip()&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-21&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-21-1.png&#34; alt=&#34;Accuracy measures&#34; width=&#34;864&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 5: Accuracy measures
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The table above present the error measures by model ordered by RMSE, in which the &lt;em&gt;arima_best&lt;/em&gt; has the lowest value. Nonetheless, for many other error measures &lt;code&gt;arima110.011&lt;/code&gt; performed better. Most of the time the decision of the best model is tricky, and always we seek to work with the most parsimonious one. &lt;strong&gt;In this case, &lt;code&gt;arima110.011&lt;/code&gt; seems to be the winner.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;diagnostic-checks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Diagnostic checks&lt;/h2&gt;
+&lt;p&gt;Before continuing to the forecasting section, it is important to check if residuals’ assumptions are accomplished.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arima_res=purrr::map(list_models, .f = function(x){
+        data.frame(date=tou_usa$date
+                   , residuals=as.numeric(residuals(x)))
+    }) %&amp;gt;%
+    plyr::join_all(by=&amp;quot;date&amp;quot;) %&amp;gt;%
+    purrr::set_names(c(&amp;quot;date&amp;quot;, names(list_models))) %&amp;gt;%
+    tbl_df() %&amp;gt;%
+    tidyr::gather(model, value, -date)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;box-pierce-and-ljung-box-tests&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Box-Pierce and Ljung-Box Tests&lt;/h3&gt;
+&lt;p&gt;Box-Ljung test is a diagnostic tool used to test the lack of fit of a time series model. It examines &lt;span class=&#34;math inline&#34;&gt;\(m\)&lt;/span&gt; autocorrelations of the residuals, autocorrelations are very small, we conclude that the model does not exhibit significant lack of fit.&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hypothesis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;H0: The model does not exhibit lack of fit.&lt;/li&gt;
+&lt;li&gt;Ha: The model exhibits lack of fit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Box.test(x = arima011.011$residuals, lag = 24, fitdf = 12, type=&amp;quot;Ljung&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Box-Ljung test
+## 
+## data:  arima011.011$residuals
+## X-squared = 17.555, df = 12, p-value = 0.1299&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Box.test(x = arima011.011$residuals, lag = 24, fitdf = 12)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Box-Pierce test
+## 
+## data:  arima011.011$residuals
+## X-squared = 16.06, df = 12, p-value = 0.1885&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since the p-values of the Box-Ljung and Box-Pierce tests are above the significance threshold of 0.05, it means that we don’t enough evidence against the null hypothesis, hence we can infer that model’s residuals are random, or in other words, they do not present autocorrelation (serial independence).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;normality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Normality&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot2::ggplot(arima_res, aes(sample=value))+
+    stat_qq()+
+    facet_wrap(~model, scales = &amp;quot;free&amp;quot;)+
+    labs(x=&amp;quot;theoretical quantiles&amp;quot;, y=&amp;quot;sample quantiles&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-24&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-24-1.png&#34; alt=&#34;QQ plots of the residuals&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 6: QQ plots of the residuals
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Values seem to work well (close to a diagonal of 45°), thus, we can assume that all models present a normal distribution.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;variance&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Variance&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = arima_res, aes(x=date, y=value))+
+    geom_line()+
+    facet_wrap(~model, scales=&amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-25&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-25-1.png&#34; alt=&#34;Residuals series&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 7: Residuals series
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are a couple of considerations to highlight regarding the variance of the residuals. First, for non-seasonal models there is an increasing variance as the time goes, this clearly demands further treatment (such as &lt;em&gt;Box-Cox&lt;/em&gt; transformations) and analysis. Second, for seasonal models, there are outliers that are not precisely captured by the model.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;acf&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;ACF&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;forecast::ggAcf(list_models$arima011.011$residuals, main=&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: main&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-26-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Here we can see the ACF of the chosen model &lt;code&gt;arima011.011&lt;/code&gt;. In lag 2 there is a value that presents an important sign of autocorrelation. Nonetheless, we are can be fairly confident in the fact that does not break the assumptions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pacf&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PACF&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;forecast::ggPacf(list_models$arima011.011$residuals, main=&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: main&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-27-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Same as ACF, in lag 2 there is an autocorrelation close to the confidence interval. As stated, it is not a relevant problem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;forecast&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Forecast&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;forecast::forecast(arima011.011) %&amp;gt;%
+    autoplot(main=&amp;quot;&amp;quot;)+
+    geom_forecast()+
+    scale_x_continuous(limits = c(2010, 2019.5), breaks = 2010:2019.5)+
+    labs(x=&amp;quot;date&amp;quot;, y=&amp;quot;tourist arrivals&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-28&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/tutorial/arima_files/figure-html/unnamed-chunk-28-1.png&#34; alt=&#34;Forecast of USA tourist to CR from $ARIMA(0,1,1)(0,1,1)_{12}$ model&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 8: Forecast of USA tourist to CR from &lt;span class=&#34;math inline&#34;&gt;\(ARIMA(0,1,1)(0,1,1)_{12}\)&lt;/span&gt; model
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level2 unnumbered&#34;&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references&#34;&gt;
+&lt;div id=&#34;ref-box2015time&#34;&gt;
+&lt;p&gt;Box, George E P, Gwilym M Jenkins, Gregory C Reinsel, and Greta M Ljung. 2015. &lt;em&gt;Time series analysis: forecasting and control&lt;/em&gt;. John Wiley &amp;amp; Sons.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Cowpertwait2009&#34;&gt;
+&lt;p&gt;Cowpertwait, Paul, and Andrew Metcalfe. 2009. &lt;em&gt;Introductory Time Series with R&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-shumway2010time&#34;&gt;
+&lt;p&gt;Shumway, Robert H, and David S Stoffer. 2010. &lt;em&gt;Time Series Analysis and Its Applications: With R Examples&lt;/em&gt;. Springer Science &amp;amp; Business Media.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Stands for Independently Identically Distributed, for statistical inference purposes it is desirable that the random variables follow the same distribution as well as been mutually independent&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;In this study “series”&amp;quot; or “signal” is going to be used indifferentially&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;&lt;a href=&#34;http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4481.htm&#34; class=&#34;uri&#34;&gt;http://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4481.htm&lt;/a&gt;&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to cope with the media bias in the news market?</title>
+      <link>/post/competition-forces-media-bias/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/competition-forces-media-bias/</guid>
+      <description>
+
+
+&lt;p&gt;In the new age of information, the common wisdom dictates that people acquire and validate cues that endorse their prejudices. Nonetheless, it is likely that information providers were aware of such behavior even from the times when the print press was invented, taking advance to maximize the probability of inflicting influence in the society.&lt;/p&gt;
+&lt;p&gt;In an Economic theory on demand for news assumes that individuals read, watch and listen to information according to a function that maximizes the utility for given better decision-making function. The competition will stem among the news providers to create content as precise as possible in order to motivate the readers, consume and profit from that market transaction. On the other side, non-economic describes a more subtle relationship between accuracy and interest, that is, quality is not the only driver of demand, instead, the reader has to be entertained with the product as well. We can call this component as &lt;em&gt;distraction utility (DU)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/fight.jpg&#34; width=&#34;40%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So what? What is the problem? Two words, &lt;strong&gt;media bias&lt;/strong&gt;. The issue stems when information providers do not compete for accuracy, rather captivate the eye of the individuals, which at the same time have group specific and idiosyncratic preferences, attitudes and biases that create extreme ideological positions. Historically, we have seen several events in which political extremism has provoked catastrophic outcomes to the society. Incidentally, slant in media is likely associated with media owners profit-maximizing behavior, since it is expected that the more a given covered event attracts “clicks”, the higher the revenue from ads.&lt;/p&gt;
+&lt;p&gt;Under this scenario, a natural action is to ask for more transparency from media providers, however, coordination cross-action within the society rarely has an impact on the content. Instead, we as readers are certainly affected by our own views of the world, nonetheless, we should push to a diversification of our sources. On this matter, &lt;span class=&#34;citation&#34;&gt;(&lt;span class=&#34;citeproc-not-found&#34; data-reference-id=&#34;Mullainathan05&#34;&gt;&lt;strong&gt;???&lt;/strong&gt;&lt;/span&gt;)&lt;/span&gt; proved what the non-so-common common sense:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Competition forces newspapers to cater to the prejudices of their readers, and greater
+competition typically results in more aggressive catering to such prejudices as competitors strive to divide the market. On the other hand, we found that reader diversity is a powerful force toward accuracy, as long as accuracy is interpreted as some aggregate measure of the revelation of information to a reader who takes in all the news. Greater partisanship and bias of individual media outlets may result in a more accurate picture being presented to a conscientious reader.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Some people might say, “hey, you do not need to create a complex model to find such as evident answer”. Well, that might be true, partly, because we can represent and track with are the component and find a logical starting course of action to improve social welfare.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

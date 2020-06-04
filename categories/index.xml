@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Obryan Poyser</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R-Language</title>
+      <link>/categories/r-language/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/r-language/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>/categories/statistics/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book review</title>
+      <link>/categories/book-review/</link>
+      <pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/book-review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Economics</title>
+      <link>/categories/economics/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/economics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Personal</title>
+      <link>/categories/personal/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opinion</title>
+      <link>/categories/opinion/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/opinion/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

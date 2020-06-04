@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on Obryan Poyser</title>
+    <link>/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>External Project</title>
+      <link>/project/udecision/</link>
+      <pubDate>Thu, 20 Dec 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/project/udecision/</guid>
+      <description>Career planning powered by Artificial Intelligence</description>
+    </item>
+    
+  </channel>
+</rss>

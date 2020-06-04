@@ -1,0 +1,556 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    <url>
+    
+      <loc>/categories/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/r-language/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/statistics/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/time-series-analysis/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/robust-regression/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/robust-statistics/</loc>
+      <lastmod>2019-09-02T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/research/</loc>
+      <lastmod>2019-04-10T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/book-review/</loc>
+      <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/my-early-thoughts-on-atomic-habits/</loc>
+      <lastmod>2019-04-08T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/visual-selection-of-optimal-lag-length-in-var-models/</loc>
+      <lastmod>2019-03-19T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/var/</loc>
+      <lastmod>2019-03-19T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/sent_analysis_data_vis/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/data_wrangling/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/data_wrangling2/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/intro_r_language/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/reprod_res_web_scrap/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/supervised/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/unsupervised/</loc>
+      <lastmod>2019-02-19T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/deep-learning/</loc>
+      <lastmod>2018-12-20T00:00:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/education/</loc>
+      <lastmod>2018-12-20T00:00:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/project/udecision/</loc>
+      <lastmod>2018-12-20T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/project/</loc>
+      <lastmod>2018-12-20T00:00:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/career-decision-making/</loc>
+      <lastmod>2018-12-20T00:00:00+02:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/publication_types/3/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/authors/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/publication/herding/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/publication_types/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/publication/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/authors/admin/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/cryptocurrency/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/markov-switching/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/time-series/</loc>
+      <lastmod>2018-11-18T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/economics/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/what-is-to-be-rational/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/awareness/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/decision-making/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/political-action/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/rationality/</loc>
+      <lastmod>2018-10-23T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/arima/</loc>
+      <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/</loc>
+      <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/competition-forces-media-bias/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/personal/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/what-motives-us/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/market-competition/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/media-bias/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/podcast/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/review/</loc>
+      <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/creating-a-binary-discrete-variable-the-tidy-way/</loc>
+      <lastmod>2018-07-26T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/factor-variable/</loc>
+      <lastmod>2018-07-26T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/digame-costarriquenyo/</loc>
+      <lastmod>2018-07-19T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/costa-rica/</loc>
+      <lastmod>2018-07-19T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/lenguaje/</loc>
+      <lastmod>2018-07-19T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/privacy/</loc>
+      <lastmod>2018-06-28T00:00:00+02:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/instagram/</loc>
+      <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/web-scraping/</loc>
+      <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/world-cup/</loc>
+      <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/collect-followers-on-instagram/</loc>
+      <lastmod>2018-06-07T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/getting-science-direct-articles/</loc>
+      <lastmod>2018-05-28T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/journal-articles/</loc>
+      <lastmod>2018-05-28T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/incertidumbre-y-otros-cuentos-entre-los-alvarados-cu%C3%A1l-es-mejor-apuesta/</loc>
+      <lastmod>2018-03-25T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/categories/opinion/</loc>
+      <lastmod>2018-03-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/bayesian-thinking/</loc>
+      <lastmod>2018-03-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/bayes-y-el-cajero-autom%C3%A1tico/</loc>
+      <lastmod>2018-02-23T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/2017-08-23-necesitamos-mejorar-la-educaci%C3%B3n-secundaria-para-ayer/</loc>
+      <lastmod>2017-08-23T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/esas-canciones-que-quiebran-y-reparan/</loc>
+      <lastmod>2017-07-17T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/music/</loc>
+      <lastmod>2017-07-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/example-of-frequentist-perspective-of-probability/</loc>
+      <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/probability/</loc>
+      <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/comunicaci%C3%B3n/</loc>
+      <lastmod>2017-05-19T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/el-poder-de-comunicar/</loc>
+      <lastmod>2017-05-19T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/post/save-with-time-stamp/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/time-stamp/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/post/todo-sea-por-organizarme/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/procastination/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/switching-costs/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/tags/writecsv/</loc>
+      <lastmod>2017-04-26T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/author/admin/</loc>
+    </url>
+  
+    <url>
+    
+      <loc>/home/</loc>
+    </url>
+  
+    <url>
+    
+      <loc>/tutorial/datasets/readme/</loc>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/author/</loc>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/slides/</loc>
+      <priority>0</priority>
+    </url>
+  
+    <url>
+    
+      <loc>/slides/example-slides/</loc>
+    </url>
+  
+</urlset>

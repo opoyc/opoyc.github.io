@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VAR on Obryan Poyser</title>
+    <link>/tags/var/</link>
+    <description>Recent content in VAR on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/var/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Optimal lag length in VAR models</title>
+      <link>/post/visual-selection-of-optimal-lag-length-in-var-models/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/visual-selection-of-optimal-lag-length-in-var-models/</guid>
+      <description>Recently, I have been playing with vector autoregressive models. During the model specification and “sanity checks” one has to choose model order, that is, how many LHS lags introduce in the multi-equation model.
+The most common approach for lag order selection is to inspect among different information criteria and choose the model that minimizes these indicators. There are several Information Criterion alternatives, and they vary on the weight they put on prediction error and parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

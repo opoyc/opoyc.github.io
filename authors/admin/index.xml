@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>admin on Obryan Poyser</title>
+    <link>/authors/admin/</link>
+    <description>Recent content in admin on Obryan Poyser</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Herding behavior in cryptocurrency markets</title>
+      <link>/publication/herding/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/herding/</guid>
+      <description> Supplementary notes can be added here, including [code and math](https://sourcethemes.com/academic/docs/writing-markdown-latex/).   -- </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/author/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/author/admin/</guid>
+      <description>Born and raised in the calid Caribbean zone of Costa Rica. Life long learner &amp;amp; doer. Enthusiast, performing the best in every situation while enjoying the journey is the only way.
+Currently working as a predoctoral researcher of the Applied Economics department at Autonomous University of Barcelona (UAB), where I also teach introductory economics courses.
+On my spare time you will find me outdoors 🏞️</description>
+    </item>
+    
+  </channel>
+</rss>
